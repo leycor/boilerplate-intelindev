@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Button } from '@nextui-org/button';
 
 export default async function Home() {
   return (
@@ -7,6 +8,7 @@ export default async function Home() {
       <Link href={'/admin'} className="font-bold">
         Panel Admin
       </Link>
+      <Button>Click Me</Button>
     </main>
   )
 }

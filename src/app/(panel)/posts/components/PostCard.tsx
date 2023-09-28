@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { type IPost } from '../types'
+import { Button } from '@nextui-org/button';
 
 const PostCard = ({ post }: { post: IPost }) => {
   const [state, setState] = React.useState(0)
@@ -16,7 +17,7 @@ const PostCard = ({ post }: { post: IPost }) => {
         {post.id}. {post.title}
       </h3>
       <p>{post.body}</p>
-      <button onClick={() => handleClick(post)} className="bg-black text-white cursor-pointer">Click Here</button>
+      <Button onClick={() => handleClick(post)} className=" text-white cursor-pointer">Click Here</Button>
     </div>
   )
 }

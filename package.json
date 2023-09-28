@@ -10,6 +10,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
+    "@nextui-org/react": "^2.1.13",
+    "framer-motion": "^10.16.4",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"

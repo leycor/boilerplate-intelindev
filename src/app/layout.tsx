@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { Providers } from './providers'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,8 +14,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es">
       <body className={`${inter.className} text-sm min-h-screen`}>
-        {children}
-        <footer className="text-center -mt-9">By Intelindev</footer>
+        <Providers>
+          {children}
+          <footer className="text-center -mt-9">By Intelindev</footer>
+        </Providers>
       </body>
     </html>
   )
