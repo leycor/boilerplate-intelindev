@@ -1,7 +1,9 @@
-import './globals.css'
+import '../assets/styles/globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Providers } from './providers'
+import GlobalStyles from '@/assets/styles/GlobalStyles'
+import StyledComponentsRegistry from '@/lib/registry'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,10 +16,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es">
       <body className={`${inter.className} text-sm min-h-screen`}>
-        <Providers>
-          {children}
-          <footer className="text-center -mt-9">By Intelindev</footer>
-        </Providers>
+        <StyledComponentsRegistry>
+          <Providers>
+            <GlobalStyles />
+            {children}
+            <footer className="text-center -mt-9">By Intelindev</footer>
+          </Providers>
+        </StyledComponentsRegistry>
       </body>
     </html>
   )
