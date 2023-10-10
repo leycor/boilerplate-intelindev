@@ -1,43 +1,27 @@
-'use client'
-import { Input } from '@nextui-org/react'
+import Link from 'next/link'
+import FormLogin from './components/FormLogin'
 
-const LoginPage = () => {
+async function miFuncion() {
+  await new Promise<void>(resolve => {
+    setTimeout(() => {
+      console.log("La promesa se ha ejecutado después de 3 segundos");
+      resolve();
+    }, 3000);
+  });
+}
+
+
+const LoginPage = async () => {
+  console.log('ME EJECUTÉ AAAAAAAAAAAAA')
+  await miFuncion()
+
   return (
-    <div className="flex flex-col gap-3">
+    <div className="w-full flex flex-col gap-3 justify-center items-center">
       <p className="text-center">Company Name</p>
-      <div className="flex flex-col gap-3">
-        <Input
-          labelPlacement='outside'
-          radius="sm"
-          variant="faded"
-          size="md"
-          type="email"
-          label="Correo electronico"
-          placeholder="Ingresa tu correo electronico"
-          classNames={{
-            inputWrapper: [
-              "border-1 border-gray-400",
-              "bg-gray-100 shadow-md",
-            ],
-          }}
-  
-        />
-        <Input
-          labelPlacement='outside'
-          radius="sm"
-          variant="faded"
-          size="md"
-          type="password"
-          label="Contraseña"
-          placeholder="Ingresa tu contraseña"
-          classNames={{
-            inputWrapper: [
-              "border-1 border-gray-400",
-              "bg-gray-100 shadow-md",
-            ],
-          }}
-  
-        />
+      <FormLogin />
+      <div className="flex justify-between flex-wrap w-full md:w-100 px-3">
+        <Link href={'/admin'}>Registrar</Link>
+        <Link href={'/'}>Ir al menú</Link>
       </div>
     </div>
   )

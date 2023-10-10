@@ -1,5 +1,6 @@
 import '../assets/styles/globals.css'
 import type { Metadata } from 'next'
+import { ToastContainer } from 'react-toastify';
 import { Inter } from 'next/font/google'
 import { Providers } from './providers'
 import GlobalStyles from '@/assets/styles/GlobalStyles'
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <footer className="text-center -mt-9">By Intelindev</footer>
           </Providers>
         </StyledComponentsRegistry>
+        <ToastContainer />
       </body>
     </html>
   )
