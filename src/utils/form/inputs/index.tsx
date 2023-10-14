@@ -2,7 +2,16 @@
 import { type IInputForm } from './types'
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/20/solid'
 import { TYPE_INPUT } from '../types'
-import { Input, Select, SelectItem, Textarea } from '@nextui-org/react'
+import {
+  Checkbox,
+  Input,
+  Radio,
+  RadioGroup,
+  Select,
+  SelectItem,
+  Textarea,
+  cn,
+} from '@nextui-org/react'
 import { InputValidations } from '../validations/InputValidations'
 import React from 'react'
 import { FormContainer } from './styles'
@@ -65,7 +74,6 @@ const InputForm = ({
 
   // ****************** INPUT ******************************* //
   const normalInput = () => {
-    console.log('description', description)
     return (
       <FormContainer>
         <Input
@@ -125,7 +133,7 @@ const InputForm = ({
             trigger: [
               `${evaluateField ? 'border-1 border-green-500' : 'border-1 border-gray-400'}`,
             ],
-            base: [`bg-gray-100 shadow-md`],
+            base: [`bg-gray-100 shadow-md rounded-lg`],
           }}
         >
           {selectOption.map(option => (
@@ -141,40 +149,88 @@ const InputForm = ({
   const textAreaInput = () => {
     return (
       <Textarea
-      isRequired={isRequired}
-      labelPlacement="inside"
-      description={allDescription}
-      radius="sm"
-      variant="faded"
-      size="sm"
-      name={name}
-      isDisabled={disabled}
-      label={label}
-      placeholder={placeholder}
-      value={value}
-      onChange={onChange}
-      errorMessage={showError && isFocus && errorMesage[0]}
-      onFocus={() => {
-        setIsFocus(true)
-      }}
-      isInvalid={showError && isFocus && !evaluateField}
-      classNames={{
-        inputWrapper: [
-          `${evaluateField ? 'border-1 border-green-500' : 'border-1 border-gray-400'}`,
-          'bg-gray-100 shadow-md',
-        ],
-      }}
+        isRequired={isRequired}
+        labelPlacement="inside"
+        description={allDescription}
+        radius="sm"
+        variant="faded"
+        size="sm"
+        name={name}
+        isDisabled={disabled}
+        label={label}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        errorMessage={showError && isFocus && errorMesage[0]}
+        onFocus={() => {
+          setIsFocus(true)
+        }}
+        isInvalid={showError && isFocus && !evaluateField}
+        classNames={{
+          inputWrapper: [
+            `${evaluateField ? 'border-1 border-green-500' : 'border-1 border-gray-400'}`,
+            'bg-gray-100 shadow-md',
+          ],
+        }}
       />
     )
   }
 
-  // const checkInput = () => {
+  const checkInput = () => {
+    return (
+      <Checkbox
+        radius="sm"
+        size="sm"
+        name={name}
+        isDisabled={disabled}
+        isSelected={statusCheck}
+        onValueChange={onChange}
+        onFocus={() => {
+          setIsFocus(true)
+        }}
+        isInvalid={showError && isFocus && !evaluateField}
+      >
+        {label}
+      </Checkbox>
+    )
+  }
 
-  // }
+  const radioInput = () => {
+    return (
+      <RadioGroup
+        label={label}
+        size="sm"
+        isDisabled={disabled}
+        orientation="horizontal"
+        value={value}
+        onValueChange={onChange}
+        className="items-center"
+      >
+        {selectOption.map(option => (
+          <Radio
+            size="sm"
+            key={option.value}
+            value={`${option.value}`}
+            classNames={{
+              base: cn(
+                'inline-flex m-0 bg-content2 hover:bg-content3 items-center justify-between',
+                'flex-row-reverse w-full md:w-  cursor-pointer rounded-lg gap-4 p-2 border-2 border-transparent',
+                'data-[selected=true]:border-primary',
+              ),
+            }}
+          >
+            {option.label}
+          </Radio>
+        ))}
+      </RadioGroup>
+    )
+  }
 
   if (LIST_NORMAL_INPUT.includes(type)) return normalInput()
   if (type === TYPE_INPUT.SELECT) return selectInput()
   if (type === TYPE_INPUT.TEXT_AREA) return textAreaInput()
+  if (type === TYPE_INPUT.CHECKBOX) return checkInput()
+  if (type === TYPE_INPUT.RADIO) return radioInput()
   // if (type === TYPE_INPUT.ASYNC_SELECT) return selectWithSearch()
   return normalInput()
 

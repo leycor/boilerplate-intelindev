@@ -1,5 +1,5 @@
-import { type TYPE_INPUT } from "../types"
-import { type IValidationsType } from "../validations/types"
+import { type TYPE_INPUT } from '../types'
+import { type IValidationsType } from '../validations/types'
 
 export interface IInputForm {
   key?: string
@@ -14,7 +14,7 @@ export interface IInputForm {
   description?: string[]
   validations?: IValidationsType
   isFocus?: boolean
-  selectOption?: Array<{ value: number; label: string }>
+  selectOption?: Array<{ value: number | string; label: string }>
   statusCheck?: boolean
   disabled?: boolean
   withDebounce?: boolean

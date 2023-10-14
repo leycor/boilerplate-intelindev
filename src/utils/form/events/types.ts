@@ -11,6 +11,7 @@ export interface ITypeDataInput {
 export interface IChangeDataTypeForm {
   inputName: string | undefined
   inputValue: string | undefined
+  inputType: string | undefined
   dataList: ITypeDataInput[]
 }
 
@@ -25,6 +26,18 @@ export interface IOnchange {
   stateForm: any
   setStateForm: any
   fieldsToChange?: ITypeDataInput[]
+}
+export interface IOnchangeCheckBox {
+  inputName: string
+  checkBoxStatus: boolean
+  stateForm: any
+  setStateForm: any
+}
+export interface IOnchangeRadio {
+  inputName: string
+  inputValue: string | number
+  stateForm: any
+  setStateForm: any
 }
 export interface IOnchangeInAutoSelect {
   e?: IEventAutoSelect | React.ChangeEvent<HTMLInputElement | HTMLSelectElement> | any

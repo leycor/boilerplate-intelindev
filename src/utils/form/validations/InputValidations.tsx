@@ -1,7 +1,7 @@
 'use client'
 
-import useFieldValidator from "../hooks/useFieldValidator"
-import { MESSAGE_ERROR, type IInputValidations, type IValidationState } from "./types"
+import useFieldValidator from '../hooks/useFieldValidator'
+import { MESSAGE_ERROR, type IInputValidations, type IValidationState } from './types'
 
 const { validateField } = useFieldValidator()
 

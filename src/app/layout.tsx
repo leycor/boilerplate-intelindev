@@ -1,9 +1,9 @@
 import '../assets/styles/globals.css'
 import type { Metadata } from 'next'
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify'
 import { Inter } from 'next/font/google'
 import { Providers } from './providers'
-import GlobalStyles from '@/assets/styles/GlobalStyles'
+// import GlobalStyles from '@/assets/styles/GlobalStyles'
 import StyledComponentsRegistry from '@/lib/registry'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -16,15 +16,17 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
-      <body className={`${inter.className} text-sm min-h-screen`}>
-        <StyledComponentsRegistry>
-          <Providers>
-            <GlobalStyles />
-            {children}
-            <footer className="text-center -mt-9">By Intelindev</footer>
-          </Providers>
-        </StyledComponentsRegistry>
+      <body className={`${inter.className} text-xs text-gray-700`}>
+        <Providers>
+          <StyledComponentsRegistry>
+            {/* <GlobalStyles /> */}
+            <main className="min-h-screen flex flex-col justify-center items-center">
+              {children}
+            </main>
+          </StyledComponentsRegistry>
+        </Providers>
         <ToastContainer />
+        <footer className="text-center p-2">By Intelindev</footer>
       </body>
     </html>
   )

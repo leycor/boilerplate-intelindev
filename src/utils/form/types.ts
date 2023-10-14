@@ -1,4 +1,4 @@
-import { type IValidationsType } from "./validations/types"
+import { type IValidationsType } from './validations/types'
 
 export enum TYPE_INPUT {
   CHECKBOX = 'checkbox',
@@ -14,12 +14,13 @@ export enum TYPE_INPUT {
   ASYNC_SELECT = 'async-select',
   TEXT_AREA = 'text-area',
   MONTH = 'month',
+  RADIO = 'month',
 }
 
 export interface IFormInput {
   type: TYPE_INPUT
   name: string
-  onChange: React.ChangeEventHandler<HTMLInputElement | HTMLSelectElement>
+  onChange?: React.ChangeEventHandler<HTMLInputElement | HTMLSelectElement>
   value?: any
   validations?: IValidationsType
   isRequired?: boolean
@@ -31,5 +32,5 @@ export interface IFormInput {
   statusCheck?: boolean
   withDebounce?: boolean
   statusDebounce?: boolean
-  selectOption?: Array<{ value: number; label: string }>
+  selectOption?: Array<{ value: number | string; label: string }>
 }
