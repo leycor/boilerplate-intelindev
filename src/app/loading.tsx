@@ -1,9 +1,7 @@
+import MainLoader from '@/components/loader/MainLoader'
+
 const Loading = () => {
-  return (
-    <div className="flex justify-center items-center min-h-screen">
-      <p>Loading Main</p>
-    </div>
-  )
+  return <MainLoader />
 }
 
 export default Loading
