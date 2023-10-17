@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { FormTitle } from '../forms/styles'
 
 const RequestPage = ({ posts }: { posts: IGetAllPosts[] }) => {
+
   return (
     <ContainerColumnCenter gap="lg" className="p-3">
       <FormTitle>JsonPlaceHolder</FormTitle>

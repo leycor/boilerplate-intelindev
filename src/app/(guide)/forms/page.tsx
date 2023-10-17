@@ -1,7 +1,6 @@
-import FormPage from '@/components/client-side/forms/FormsPage'
+import FormPage from '@/components/pages/forms/FormsPage'
 
-const Forms = () => {
+
+export default async function () {
   return <FormPage />
 }
-
-export default Forms
